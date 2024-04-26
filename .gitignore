@@ -1,0 +1,8 @@
+# Excluir la carpeta node_modules
+node_modules/
+
+# Excluir el .env
+.env
+
+# Excluir las credenciales de firebase
+/database/firebase-credentials.json
