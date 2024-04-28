@@ -44,7 +44,7 @@ const getActividadesRealizadasByUser = async(req, res = response) => {
     const fecha = Date.parse(req.query.fecha);
     const idUsuario = req.params.idUsuario;
 
-    console.log(`Obteniendo actividades realizadas para el usuario: ${id} en la fecha: ${fecha}`);
+    console.log(`Obteniendo actividades realizadas para el usuario: ${idUsuario} en la fecha: ${fecha}`);
 
     try {
 
