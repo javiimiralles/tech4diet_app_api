@@ -9,6 +9,8 @@ const getActividadRealizadaById = async(req, res = response) => {
 
     const id = req.params.id;
 
+    console.log(`Obteniendo actividad realizada con id: ${id}`);
+
     try {
 
         const actividadRealizada = await ActividadRealizada.findById(id).populate('idActividadFisica');
@@ -41,6 +43,8 @@ const getActividadesRealizadasByUser = async(req, res = response) => {
 
     const fecha = Date.parse(req.query.fecha);
     const idUsuario = req.params.idUsuario;
+
+    console.log(`Obteniendo actividades realizadas para el usuario: ${id} en la fecha: ${fecha}`);
 
     try {
 
@@ -77,6 +81,8 @@ const getActividadesRealizadasByUser = async(req, res = response) => {
 }
 
 const createActividadRealizada = async(req, res = response) => {
+
+    console.log('Creando actividad realizada: ', req.body);
 
     const { fecha, caloriasGastadas, idActividadFisica, idUsuario, ...object } = req.body;
 
@@ -143,6 +149,8 @@ const createActividadRealizada = async(req, res = response) => {
 }
 
 const updateActividadRealizada = async(req, res = response) => {
+
+    console.log('Editando actividad realizada: ', req.body);
 
     const { fecha, caloriasGastadas, idActividadFisica, idUsuario, ...object } = req.body;
     const id = req.params.id;
@@ -233,6 +241,8 @@ const deleteActividadRealizada = async(req, res = response) => {
 
     const id = req.params.id;
     const token = req.header('x-token');
+
+    console.log(`Eliminando actividad realizada con id: ${id}`);
 
     try {
 

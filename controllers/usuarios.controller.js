@@ -15,6 +15,8 @@ const { NivelActividadEnum } = require("../enums/nivel-actividad.enum");
 const getUserById = async(req, res = response) => {
     const uid = req.params.id;
 
+    console.log('Obteniendo usuario con id: ', uid);
+
     try {
         const usuario = await Usuario.findById(uid);
 
@@ -45,6 +47,8 @@ const getUserById = async(req, res = response) => {
 const getUserByEmail = async(req, res = response) => {
     const email = req.params.email;
 
+    console.log('Obteniendo usuario con email: ', email);
+
     try {
         const usuario = await Usuario.findOne({ email });
 
@@ -74,6 +78,8 @@ const getUserByEmail = async(req, res = response) => {
 }
 
 const createUser = async(req, res = response) => {
+
+    console.log('Creando usuario');
 
     const { email, password } = req.body;
 
@@ -134,8 +140,11 @@ const createUser = async(req, res = response) => {
 
 const updateUser = async(req, res = response) => {
 
+    
     const { password, email, pesoInicial, pesoActual, pesoHistorico, plan, ...object } = req.body;
     const uid = req.params.id;
+
+    console.log('Editando usuario con id: ', uid);
 
     try {
         const existeUsuario= await Usuario.findById(uid);
@@ -183,6 +192,8 @@ const updatePassword = async(req, res = response) => {
 
     const uid = req.params.id;
     const { password, newPassword, newPassword2 } = req.body;
+
+    console.log('Editando contraseña del usuario con id: ', uid);
 
     try {
 
@@ -236,6 +247,8 @@ const updatePassword = async(req, res = response) => {
 
 const deleteUser = async(req, res = response) => {
     const uid = req.params.id;
+
+    console.log('Eliminando usuario con id: ', uid);
 
     try {
 

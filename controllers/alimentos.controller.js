@@ -7,6 +7,8 @@ const getAlimentoById = async(req, res = response) => {
 
     const id = req.params.id;
 
+    console.log('Obteniendo alimento con id: ', id);
+
     try {
 
         const alimento = await Alimento.findById(id);
@@ -46,6 +48,8 @@ const getAlimentosByUser = async(req, res = response) => {
     }
 
     const idUsuario = req.params.idUsuario;
+
+    console.log('Obteniendo alimentos para el usuario: ', idUsuario);
 
     try {
 
@@ -93,6 +97,8 @@ const getAlimentosByUser = async(req, res = response) => {
 }
 
 const createAlimento = async(req, res = response) => {
+
+    console.log('Creando alimento: ', req.body);
 
     const { nombre, idUsuario, cantidadReferencia, ...object } = req.body;
     
@@ -144,6 +150,8 @@ const createAlimento = async(req, res = response) => {
 }
 
 const updateAlimento = async(req, res = response) => {
+
+    console.log('Editando alimento: ', req.body);
 
     const { nombre, idUsuario, cantidadReferencia, ...object } = req.body;
     const id = req.params.id;
@@ -204,6 +212,8 @@ const deleteAlimento = async(req, res = response) => {
     
     const id = req.params.id;
     const token = req.header('x-token');
+
+    console.log('Eliminando alimento con id: ', id);
 
     try {
         

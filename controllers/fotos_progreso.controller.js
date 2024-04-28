@@ -8,6 +8,8 @@ const getFotoProgresoById = async(req, res = response) => {
 
     const id = req.params.id;
 
+    console.log('Obteniendo foto de progreso con id: ', id);
+
     try {
 
         const fotoProgreso = await FotoProgreso.findById(id);
@@ -39,6 +41,8 @@ const getFotoProgresoById = async(req, res = response) => {
 const getFotosProgresoByUser = async(req, res = response) => {
     const fecha = Date.parse(req.query.fecha);
     const idUsuario = req.params.idUsuario;
+
+    console.log(`Obteniendo foto de progreso del usuario: ${idUsuario} en la fecha: ${fecha}`);
 
     try {
 
@@ -74,6 +78,8 @@ const getFotosProgresoByUser = async(req, res = response) => {
 }
 
 const uploadFotoProgreso = async(req, res = response) => {
+
+    console.log('Subiendo foto de porgreso');
 
     if(!req.files || Object.keys(req.files).length === 0){
         return res.status(400).json({
@@ -173,6 +179,8 @@ const deleteFotoProgreso = async(req, res = response) => {
 
     const id = req.params.id;
     const token = req.header('x-token');
+
+    console.log('Eliminando foto de progreso con id: ', id);
 
     try {
 

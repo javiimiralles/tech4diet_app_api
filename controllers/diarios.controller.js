@@ -7,6 +7,8 @@ const { infoToken } = require('../utils/infotoken');
 const getDiarioById = async(req, res = response) => {
     const id = req.params.id;
 
+    console.log('Obteniendo diario con id: ', id);
+
     try {
 
         const diario = await Diario.findById(id);
@@ -38,6 +40,8 @@ const getDiarioById = async(req, res = response) => {
 const getDiarioByUser = async(req, res = response) => {
     const fecha = Date.parse(req.query.fecha);
     const idUsuario = req.params.idUsuario;
+
+    console.log(`Obteniendo diario del usuario: ${idUsuario} en la fecha: ${fecha}`);
 
     try {
 
@@ -74,6 +78,8 @@ const getDiarioByUser = async(req, res = response) => {
 }
 
 const createDiario = async(req, res = response) => {
+
+    console.log('Creando diario: ', req.body);
 
     // Cuando se crea un diario se hace con todos los valores por defecto, y luego se actualiza
     const { idUsuario, ...object } = req.body;
@@ -138,6 +144,9 @@ const createDiario = async(req, res = response) => {
 }
 
 const updateDiario = async(req, res = response) => {
+
+    console.log('Editando diario: ', req.body);
+
     const { fecha, idUsuario, aguaConsumida, caloriasGastadas, alimentosConsumidos, ...object } = req.body;
     const id = req.params.id;
     const token = req.header('x-token');
@@ -195,6 +204,9 @@ const updateDiario = async(req, res = response) => {
 }
 
 const updateAlimentosConsumidos = async(req, res = response) => {
+
+    console.log('Editando alimentos consumidos de un diario: ', req.body);
+
     const { idUsuario, ...object } = req.body;
     let { alimentoAgregar, alimentoEliminar, alimentoEditar } = req.body;
     const id = req.params.id;
@@ -368,6 +380,8 @@ const deleteDiario = async(req, res = response) => {
 
     const id = req.params.id;
     const token = req.header('x-token');
+
+    console.log('Eliminando diario con id: ', id);
 
     try {
 

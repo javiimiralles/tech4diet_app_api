@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 
 const login = async(req, res = response) => {
 
+    console.log(`Haciendo login con el usuario: ${req.body.email}`);
+
     const { email, password } = req.body;
 
     try {
@@ -51,6 +53,8 @@ const login = async(req, res = response) => {
 }
 
 const renovarToken = async(req, res = response) => {
+
+    console.log('Renovando token');
 
     const token = req.headers['x-token'];
 

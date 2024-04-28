@@ -18,8 +18,6 @@ const createMedidasCorporalesDefault = async(idUsuario) => {
 
         const medidasInsertadas = await MedidaCorporal.insertMany(medidasParaInsertar);
 
-        console.log("Medidas corporales creadas", medidasInsertadas);
-
     } catch(error){
         console.log(error);
     }
@@ -28,6 +26,8 @@ const createMedidasCorporalesDefault = async(idUsuario) => {
 const getMedidaCorporalById = async(req, res = response) => {
 
     const id = req.params.id;
+
+    console.log('Obteniendo medida corporal por id: ', id);
 
     try {
 
@@ -61,6 +61,8 @@ const getMedidasCorporalesByUser = async(req, res = response) => {
 
     const idUsuario = req.params.idUsuario;
 
+    console.log('Obteniendo medidas corporales del usuario: ', idUsuario);
+
     try {
 
         const usuario = await Usuario.findById(idUsuario);
@@ -91,6 +93,8 @@ const getMedidasCorporalesByUser = async(req, res = response) => {
 }
 
 const createMedidaCorporal = async(req, res = response) => {
+
+    console.log('Creando medida corporal: ', req.body);
     
     const { idUsuario, ...object } = req.body;
 
@@ -128,6 +132,8 @@ const createMedidaCorporal = async(req, res = response) => {
 }
 
 const updateMedidaCorporal = async(req, res = response) => {
+
+    console.log('Editando medida corporal: ', req.body);
 
     const { idUsuario, nombre, bilateral, ...object } = req.body;
     const id = req.params.id;
@@ -189,6 +195,8 @@ const deleteMedidaCorporal = async(req, res = response) => {
 
     const id = req.params.id;
     const token = req.header('x-token');
+    
+    console.log('Eliminando medida corporal con id: ', id);
 
     try {
 

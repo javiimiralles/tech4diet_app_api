@@ -10,6 +10,8 @@ const getModelo3DById = async(req, res = response) => {
 
     const idModelo = req.params.id;
 
+    console.log('Obteniendo modelo 3D con id: ', idModelo);
+
     try {
 
         const modelo3D = await Modelo3D.findById(idModelo);
@@ -41,6 +43,8 @@ const getModelo3DById = async(req, res = response) => {
 const getModelos3DByUser = async(req, res = response) => {
 
     const idUsuario = req.params.idUsuario;
+
+    console.log('Obteniendo modelos 3D del usuario: ', idUsuario);
 
     try {
 
@@ -81,6 +85,9 @@ const getModelos3DByUser = async(req, res = response) => {
 }
 
 const subirModelo3D = async(req, res = response) => {
+
+    console.log('Subiendo modelo 3D');
+
     const { idUsuario, fecha, ...object } = req.body;
 
     if (!req.files || !req.files.archivoModelo) {
@@ -161,6 +168,8 @@ const subirModelo3D = async(req, res = response) => {
 const deleteModelo3D = async(req, res = response) => {
     const id = req.params.id;
     const token = req.header('x-token');
+
+    console.log('Eliminando modelo 3D con id: ', id);
 
     try {
 

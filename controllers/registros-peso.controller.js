@@ -6,6 +6,8 @@ const { infoToken } = require('../utils/infotoken');
 const getRegistroPesoById = async(req, res = response) => {
     const id = req.params.id;
 
+    console.log('Obteniendo registro de peso con id: ', id);
+
     try {
 
         const registro = await RegistroPeso.findById(id);
@@ -40,6 +42,8 @@ const getRegistrosPesoByUser = async(req, res = response) => {
     const fechaDesde = Date.parse(req.query.fechaDesde) || '';
     const fechaHasta = Date.parse(req.query.fechaHasta) || '';
     const idUsuario = req.params.idUsuario;
+
+    console.log('Obteniendo registros de peso del usuario: ', idUsuario);
 
     try {
 
@@ -100,6 +104,8 @@ const getRegistrosPesoByUser = async(req, res = response) => {
 
 const createRegistroPeso = async(req, res = response) => {
 
+    console.log('Creando registro de peso: ', req.body);
+
     const { fecha, idUsuario, ...object } = req.body;
 
     try {
@@ -148,6 +154,9 @@ const createRegistroPeso = async(req, res = response) => {
 }
 
 const updateRegistroPeso = async(req, res = response) => {
+
+    console.log('Editando registro de peso: ', req.body);
+
     const { fecha, idUsuario, ...object } = req.body;
     const id = req.params.id;
     const token = req.header('x-token');
@@ -220,6 +229,8 @@ const deleteRegistroPeso = async(req, res = response) => {
     const id = req.params.id;
     const token = req.header('x-token');
 
+    console.log('Eliminando registro de peso con id: ', id);
+
     try {
 
         const existeRegistro = await RegistroPeso.findById(id);
@@ -260,6 +271,8 @@ const deleteRegistroPeso = async(req, res = response) => {
 }
 
 async function upatePesosHistoricosUsuario(peso, idUsuario, modoCreacion) {
+
+    console.log('Actualizando el histórico de pesos del usuario: ', idUsuario);
     
     try {
         const usuario = await Usuario.findById(idUsuario);

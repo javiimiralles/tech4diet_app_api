@@ -9,6 +9,8 @@ const getActividadFisicaById = async (req, res = response) => {
 
     const id = req.params.id;
 
+    console.log(`Obteniendo actividad física por id: ${id}`);
+
     try {
 
         const actividadFisica = await ActividadFisica.findById(id);
@@ -38,6 +40,9 @@ const getActividadFisicaById = async (req, res = response) => {
 }
 
 const getActividadesFisicas = async (req, res = response) => {
+
+    console.log('Obteniendo actividades físicas');
+
     const desde = Number(req.query.desde) || 0;
     const resultados = Number(req.query.resultados) || Number(process.env.DOCSPERPAGE);
     const texto = req.query.texto;
@@ -100,6 +105,8 @@ const getActividadesFisicas = async (req, res = response) => {
 
 const createActividadFisica = async (req, res = response) => {
 
+    console.log('Creando actividad física: ', req.body);
+
     const { nombre, idUsuario, ...object } = req.body;
 
     try {
@@ -156,6 +163,8 @@ const createActividadFisica = async (req, res = response) => {
 }
 
 const updateActividadFisica = async (req, res = response) => {
+
+    console.log('Editando actividad física: ', req.body);
 
     const { nombre, idUsuario, ...object } = req.body;
     const id = req.params.id;
@@ -231,6 +240,8 @@ const deleteActividadFisica = async (req, res = response) => {
 
     const id = req.params.id;
     const token = req.header('x-token');
+
+    console.log(`Eliminando actividad física con id: ${id}`);
 
     try {
 

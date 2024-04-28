@@ -6,6 +6,8 @@ const getArchivo = async(req, res = response) => {
     const fileName = req.params.fileName;
     const path = `${process.env.PATH_UPLOAD}/${fileName}`;
 
+    console.log('Obteniendo archivo con nombre: ', fileName);
+
     if(!fs.existsSync(path)) {
         return null;
     }
@@ -14,6 +16,9 @@ const getArchivo = async(req, res = response) => {
 }
 
 const subirArchivo = async(archivo, path) => {
+
+    console.log('Subiendo archivo');
+
     const moveFile = () => {
         return new Promise((resolve, reject) => {
             archivo.mv(path, (err) => {
