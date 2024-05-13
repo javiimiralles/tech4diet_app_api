@@ -97,12 +97,12 @@ const createDiario = async(req, res = response) => {
         const usuario = await Usuario.findById(idUsuario);
 
         // KO -> usuario no existe
-        if(!usuario) {
-            return res.status(400).json({
-                ok:false,
-                msg:"No existe ningún usuario para el id: " + idUsuario
-            });
-        }
+        // if(!usuario) {
+        //     return res.status(400).json({
+        //         ok:false,
+        //         msg:"No existe ningún usuario para el id: " + idUsuario
+        //     });
+        // }
 
         const fechaAnterior = new Date(fecha);
         fechaAnterior.setHours(0, 0, 0, 0);
