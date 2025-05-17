@@ -1,4 +1,4 @@
-![Portada Tech4Diet](https://github.com/user-attachments/assets/a6584ffb-1fd9-464f-b3aa-d10470aa2a52)
+![Portada Tech4Diet](https://github.com/user-attachments/assets/5d477a90-5636-47c0-9b73-196fe660cd2e)
 
 # API de la aplicación Tech4Diet App
 ### :information_source: Detalles del proyecto
