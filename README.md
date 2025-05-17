@@ -1,9 +1,14 @@
+![Portada Tech4Diet](https://github.com/user-attachments/assets/a6584ffb-1fd9-464f-b3aa-d10470aa2a52)
+
 # API de la aplicación Tech4Diet App
 ### :information_source: Detalles del proyecto
 Este se trata del backend de un aplicación de seguimiento nutricional y dietético. 
 Es parte del Trabajo Final de Grado de Ingeniería Multimedia de Javier Miralles, tutorizado por Jorge Azorín López y Andrés Fuster Guilló, profesores de la Universidad de Alicante. 
-Es una contribución a [Tech4Diet](https://tech4d.ua.es/), un proyecto que desarrolla un sistema para medir la evolución física del 
+
+Este TFG es una contribución a [Tech4Diet](https://tech4d.ua.es/), un proyecto que desarrolla un sistema para medir la evolución física del 
 cuerpo humano en determinados tratamientos haciendo uso de las tecnologías más avanzadas de visión artificial.
+
+El backend del proyecto ha sido desarrollado utilizando <b>Node.js</b> + <b>Express</b>, los cuales se comunican con una base de datos de <b>MongoDB</b>
 
 ---
 ### :wrench: Arrancar el proyecto
